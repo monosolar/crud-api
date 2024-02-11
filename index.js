@@ -1,5 +1,6 @@
 import http from 'http';
 import url from 'url';
+import 'dotenv/config';
 import usersPOST from './src/api/handlers/usersPOST.js';
 import Collection from './src/model/index.js';
 import { handle404 } from './src/utils/api.js';
@@ -12,6 +13,8 @@ import usersGET from './src/api/handlers/usersGET.js';
 const PORT = process.env.PORT || 4000;
 
 const collection = new Collection();
+
+const isMultiMode = process.argv.slice(2).includes('--multi');
 
 const server = http.createServer((req, res) => {
   const parsedUrl = url.parse(req.url, true);

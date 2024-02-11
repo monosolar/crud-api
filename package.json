@@ -7,8 +7,9 @@
   },
   "type": "module",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start:dev": "nodemon index.js",
+    "start:prod": "node index.js",
+    "start:multi": "nodemon index.js --multi"
   },
   "repository": "git@github.com:monosolar/crud-api.git",
   "keywords": [
@@ -24,6 +25,7 @@
     "prettier": "^2.8.8"
   },
   "dependencies": {
+    "dotenv": "^16.4.2",
     "uuid": "^9.0.1"
   }
 }
