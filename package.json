@@ -1,7 +1,8 @@
 {
   "name": "crud-api",
   "version": "1.0.0",
-  "main": "index.js", "engines": {
+  "main": "index.js",
+  "engines": {
     "node": ">=20.0.0"
   },
   "type": "module",
@@ -12,14 +13,17 @@
   "repository": "git@github.com:monosolar/crud-api.git",
   "keywords": [
     "nodejs"
-  ], 
+  ],
   "bugs": {
     "url": "https://github.com/monosolar/file-manager/issues"
   },
   "author": "monosolar",
   "license": "MIT",
-  "private": false, 
+  "private": false,
   "devDependencies": {
     "prettier": "^2.8.8"
+  },
+  "dependencies": {
+    "uuid": "^9.0.1"
   }
 }
