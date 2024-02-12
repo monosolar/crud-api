@@ -1,30 +1,26 @@
 import http from 'http';
 import url from 'url';
-import usersPOST from './src/api/handlers/usersPOST.js';
-import { handle404 } from './src/utils/api.js';
-import usersIdGET from './src/api/handlers/usersIdGET.js';
-import usersIdDELETE from './src/api/handlers/usersIdDELETE.js';
-import usersIdPUT from './src/api/handlers/usersIdPUT.js';
-import usersGET from './src/api/handlers/usersGET.js';
+import usersPOST from './api/handlers/usersPOST.js';
+import { handle404 } from './utils/api.js';
+import usersIdGET from './api/handlers/usersIdGET.js';
+import usersIdDELETE from './api/handlers/usersIdDELETE.js';
+import usersIdPUT from './api/handlers/usersIdPUT.js';
+import usersGET from './api/handlers/usersGET.js';
 
-const server = (port, collection) =>
+const serverInst = (port, collection) =>
   http
     .createServer((req, res) => {
       const parsedUrl = url.parse(req.url, true);
       const [path] = parsedUrl.pathname.split('?');
       const method = req.method.toUpperCase();
-
-      // todo consider 401
       const pathArray = path.split('/').filter((subPath) => subPath.length > 0);
-
-      // todo ['api', 'users', '23r-23r-erfw']
+      const uuid = pathArray[2];
 
       if (pathArray[0] !== 'api' || pathArray[1] !== 'users' || pathArray[3]) {
         handle404(res);
         return;
       }
 
-      const uuid = pathArray[2];
       if (uuid && uuid.length > 0) {
         // uuid provided
 
@@ -72,4 +68,4 @@ const server = (port, collection) =>
     })
     .listen(port, () => console.log(`server listening on port: ${port}`));
 
-export default server;
+export default serverInst;

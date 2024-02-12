@@ -1,13 +1,7 @@
 import { v1 as uuidv1 } from 'uuid';
 class Collection {
   constructor() {
-    this.data = {
-      wefqgqergqerg: {
-        username: 'WEFqgerg',
-        age: 34,
-        hobbies: ['football'],
-      },
-    };
+    this.data = {};
   }
 
   createUser({ username, age, hobbies }) {
